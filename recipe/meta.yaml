@@ -1,5 +1,5 @@
 {% set name = "taipy-config" %}
-{% set version = "3.0.0" %}
+{% set version = "3.1.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/taipy-config-{{ version }}.tar.gz
-  sha256: 5c6561c51b3c28d774759b72beb104eedacf803ebecbd0a1e07a3b2dbfe899ca
+  sha256: fb4ebcf8db5f27fb1fecfc12702f33b062a44fdc255dfb5b232b52163077d3f9
 
 build:
   noarch: python
