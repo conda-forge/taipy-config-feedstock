@@ -6,26 +6,32 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/taipy-config-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/taipy-config-{{ version }}.tar.gz
   sha256: 2f01184c73b38413e7fc822cbc5803ca23313d0908775aee59794f709c3f4d92
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 0
+  number: 1
 
 requirements:
   host:
-    - python >=3.8
+    - python {{ python_min }}
     - pip
+    - setuptools
   run:
-    - python >=3.8
+    - python >={{ python_min }}
     - toml >=0.10,<0.11
     - deepdiff >=6.2,<6.3
 
 test:
   imports:
     - taipy
+  commands:
+    - pip check
+  requires:
+    - pip
+    - python {{ python_min }}
 
 about:
   home: https://github.com/avaiga/taipy-config
